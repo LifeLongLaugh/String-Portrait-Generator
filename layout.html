@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oval String Art (vanilla)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Oval String-Art (HTML • CSS • JS)</h1>
+      <div class="top-controls">
+        <input id="fileInput" type="file" accept="image/*" />
+        <label>Oval W (%) <input id="ovalW" type="range" min="10" max="100" value="80"/> <span id="ovalWval">80</span></label>
+        <label>Oval H (%) <input id="ovalH" type="range" min="10" max="100" value="66"/> <span id="ovalHval">66</span></label>
+      </div>
+    </header>
+
+    <main>
+      <section class="canvases">
+        <div class="canvas-wrap">
+          <h3>Image (drag to position)</h3>
+          <canvas id="imageCanvas" width="600" height="600"></canvas>
+        </div>
+
+        <div class="canvas-wrap">
+          <h3>Blank (nails & threads)</h3>
+          <canvas id="workCanvas" width="600" height="600"></canvas>
+          <div class="status">
+            Connections: <span id="connectionsCount">0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="sliders">
+          <label>Nails: <input id="nailCount" type="range" min="12" max="400" value="180"/> <span id="nailCountVal">180</span></label>
+          <label>Max Strokes: <input id="maxLines" type="range" min="50" max="8000" value="3000"/> <span id="maxLinesVal">3000</span></label>
+          <label>Thread thickness: <input id="thickness" type="range" min="0.3" max="6" step="0.1" value="0.8"/> <span id="thicknessVal">0.8</span></label>
+        </div>
+
+        <div class="buttons">
+          <button id="startBtn">Start</button>
+          <button id="stopBtn">Stop</button>
+          <button id="resetBtn">Reset</button>
+          <button id="exportSeqBtn">Export Sequence (.txt)</button>
+          <button id="exportPNGBtn">Export PNG</button>
+        </div>
+
+        <div class="notes">
+          <small>Tip: adjust oval W/H then drag the image on the left canvas to position the face inside the ellipse. Click Start to generate threads incrementally. Stop to pause.</small>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Built with plain HTML / CSS / vanilla JS. No libraries.</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
