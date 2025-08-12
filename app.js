@@ -6,7 +6,7 @@
 (() => {
   // ----------------- CONFIG -----------------
   const DISPLAY_SIZE = 600;     // CSS pixels the canvases are shown at
-  const RES = 1500;             // internal resolution (change to 1200/1500)
+  const RES = 1200;             // internal resolution (change to 1200/1500)
   const dpr = window.devicePixelRatio || 1;
   const BACKING_SIZE = Math.floor(RES * dpr);
   const SAMPLE_STEPS_DEFAULT = 120;
@@ -34,6 +34,7 @@
   const nailCountInput = document.getElementById('nailCount');
   const maxLinesInput = document.getElementById('maxLines');
   const thicknessInput = document.getElementById('thickness');
+  const threadBrightnessInput = document.getElementById('brightness');
   const ovalW = document.getElementById('ovalW');
   const ovalH = document.getElementById('ovalH');
 
@@ -42,16 +43,7 @@
   const thicknessVal = document.getElementById('thicknessVal');
   const ovalWval = document.getElementById('ovalWval');
   const ovalHval = document.getElementById('ovalHval');
-
-  // --- create thread brightness slider UI (if not present) ---
-  const controlsSliders = document.querySelector('.controls .sliders') || document.querySelector('.top-controls') || document.body;
-  const threadLabel = document.createElement('label');
-  threadLabel.style.display = 'block';
-  threadLabel.style.marginTop = '6px';
-  threadLabel.innerHTML = `Thread Brightness: <input id="threadBrightness" type="range" min="0" max="255" value="255"/> <span id="threadBrightnessVal">255</span>`;
-  controlsSliders.appendChild(threadLabel);
-  const threadBrightnessInput = document.getElementById('threadBrightness');
-  const threadBrightnessVal = document.getElementById('threadBrightnessVal');
+  const threadBrightnessVal = document.getElementById('brightnessVal');
 
   // --- backing sizes & DPI handling ---
   [imageCanvas, workCanvas, offscreen].forEach(c => {
